@@ -15,11 +15,21 @@ class SearchTableCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    override func prepareForReuse() {
+        indicator.startAnimating()
+        thumb.image = nil
+        title.text = nil
+        priceLabel.text = nil
+    }
+    
     func configureCell(item: Search) {
         title.text = item.title
-        priceLabel.text = "\(item.price)"
-//        thumb.image = item.thumbImg as? UIImage
-//        indicator.stopAnimating()
+        priceLabel.text = "Price: \(item.price) \(item.currency ?? "")"
     }
-
+    
+    func configureCell(image: UIImage) {
+        thumb.image = image
+        indicator.stopAnimating()
+    }
+    
 }

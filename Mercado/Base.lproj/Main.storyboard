@@ -46,7 +46,7 @@
             </objects>
             <point key="canvasLocation" x="381.60000000000002" y="-162.3688155922039"/>
         </scene>
-        <!--Search items-->
+        <!--Item Table View Controller-->
         <scene sceneID="oLr-bL-h0u">
             <objects>
                 <tableViewController id="8Rh-3Z-5cS" customClass="ItemTableViewController" customModule="Mercado" customModuleProvider="target" sceneMemberID="viewController">
@@ -55,16 +55,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <textField key="tableHeaderView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item search text" textAlignment="natural" minimumFontSize="17" id="zcw-RG-l0S">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search cell" rowHeight="100" id="VqU-WQ-URQ" customClass="SearchTableCell" customModule="Mercado" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VqU-WQ-URQ" id="T9T-Ct-xJi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
@@ -123,7 +116,22 @@
                             <outlet property="delegate" destination="8Rh-3Z-5cS" id="ggh-h4-Ihr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Search items" id="WzK-ET-OPl"/>
+                    <navigationItem key="navigationItem" id="WzK-ET-OPl">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item search text" textAlignment="natural" minimumFontSize="17" id="zcw-RG-l0S">
+                            <rect key="frame" x="8" y="7" width="359" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <action selector="refresh:" destination="8Rh-3Z-5cS" eventType="valueChanged" id="jOf-7N-nLT"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchTextField" destination="zcw-RG-l0S" id="y8W-YP-vhc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CJ-kh-aHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,6 +208,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AAD-fh-ZAe"/>
+        <segue reference="0ft-1L-jNp"/>
     </inferredMetricsTieBreakers>
 </document>

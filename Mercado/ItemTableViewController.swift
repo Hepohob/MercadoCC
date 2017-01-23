@@ -8,41 +8,65 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
-class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
     
     struct Storyboard {
         static let CellID = "Search cell"
-        static let SegueItemDetailsNew = "Segue Item Details New"
         static let SegueItemDetails = "Segue Item Details"
     }
 
-    
+    var searchText:String? {
+        didSet {
+            // Delete all records in entity 'Search' CoreData
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Search")
+            request.returnsObjectsAsFaults = false
+            do {
+                let results = try context.fetch(request)
+                for managedObject in results
+                {
+                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                    context.delete(managedObjectData)
+                }
+            } catch {
+                print(error)
+            }
+            updateUI()
+        }
+    }
+
     var controller: NSFetchedResultsController<Search>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getLastSearch()
         updateUI()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     // MARK: Update UI elements
     
     private func updateUI() {
-        REST.loadList(for: "notebook") {
-            self.attemptFetch()
-            self.tableView.reloadData()
+        if let query = searchText, !query.isEmpty {
+            REST.loadList(for: query) {
+                self.attemptFetch()
+                self.tableView.setContentOffset(CGPoint(x:0, y:-(self.navigationController?.navigationBar.frame.size.height)! * 1.4), animated: false)
+                self.tableView.reloadData()
+            }
         }
     }
     
     private func configureCell(cell:SearchTableCell, indexPath:IndexPath) {
         // update cell
         let item = controller.object(at: indexPath)
+        
+        Alamofire.request(item.thumb!).responseImage { response in
+            if let image = response.result.value {
+                cell.configureCell(image: image)
+                item.thumbImg = image
+            }
+        }
+        
         cell.configureCell(item: item)
     }
     
@@ -65,6 +89,22 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         }
     }
 
+    private func getLastSearch() {
+        let fetchRequest: NSFetchRequest<Search> = Search.fetchRequest()
+        fetchRequest.sortDescriptors = []
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext: context,
+                                                    sectionNameKeyPath: nil,
+                                                    cacheName: nil)
+        controller.delegate = self
+        self.controller = controller
+        do {
+            try controller.performFetch()
+        } catch {
+            let error = error as NSError
+            print(error)
+        }
+    }
     
     // MARK: - Table view data source
 
@@ -93,40 +133,26 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         return 100
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    // MARK: TextFieldDelegates
+    
+    @IBAction func refresh(_ sender: UITextField) {
+        updateUI()
+    }
+    
+    @IBOutlet weak var searchTextField: UITextField! {
+        didSet {
+            searchTextField.delegate = self
+            searchTextField.text = searchText
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let text = textField.text {
+            searchText = text
+        }
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation
