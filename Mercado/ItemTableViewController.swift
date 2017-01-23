@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import CoreData
 
-class ItemTableViewController: UITableViewController {
+class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
+    struct Storyboard {
+        static let CellID = "Search cell"
+        static let SegueItemDetailsNew = "Segue Item Details New"
+        static let SegueItemDetails = "Segue Item Details"
+    }
+
+    
+    var controller: NSFetchedResultsController<Search>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -20,32 +31,67 @@ class ItemTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: Update UI elements
+    
+    private func updateUI() {
+        REST.loadList(for: "notebook") {
+            self.attemptFetch()
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func configureCell(cell:SearchTableCell, indexPath:IndexPath) {
+        // update cell
+        let item = controller.object(at: indexPath)
+        cell.configureCell(item: item)
+    }
+    
+    // MARK: CoreData fetching
+    
+    private func attemptFetch() {
+        let fetchRequest: NSFetchRequest<Search> = Search.fetchRequest()
+        fetchRequest.sortDescriptors = []
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext: context,
+                                                    sectionNameKeyPath: nil,
+                                                    cacheName: nil)
+        controller.delegate = self
+        self.controller = controller
+        do {
+            try controller.performFetch()
+        } catch {
+            let error = error as NSError
+            print(error)
+        }
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        if let sections = controller?.sections {
+            return sections.count
+        }
         return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if let sections = controller?.sections {
+            let sectionInfo = sections[section]
+            return sectionInfo.numberOfObjects
+        }
         return 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: Storyboard.CellID, for: indexPath) as! SearchTableCell
+        configureCell(cell: cell, indexPath: indexPath)
         return cell
     }
-    */
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 
     /*
     // Override to support conditional editing of the table view.

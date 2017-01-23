@@ -10,3 +10,5 @@ import Foundation
 
 let BASE_URL = "https://api.mercadolibre.com/sites/MLU/search?q="
 let URL_SUFFIX = "#json"
+
+typealias DownloadComplete = () -> ()
