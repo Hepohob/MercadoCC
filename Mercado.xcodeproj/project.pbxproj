@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1339C9315E07FCD3173EE708 /* Pods_MercadoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774D8E0D099F1E70A50E8E4B /* Pods_MercadoTests.framework */; };
 		47E66B811E36373B003615AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B801E36373B003615AE /* AppDelegate.swift */; };
-		47E66B831E36373B003615AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B821E36373B003615AE /* ViewController.swift */; };
 		47E66B861E36373B003615AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E66B841E36373B003615AE /* Main.storyboard */; };
 		47E66B891E36373B003615AE /* Mercado.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B871E36373B003615AE /* Mercado.xcdatamodeld */; };
 		47E66B8B1E36373B003615AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E66B8A1E36373B003615AE /* Assets.xcassets */; };
 		47E66B8E1E36373B003615AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */; };
 		47E66B991E36373B003615AE /* MercadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B981E36373B003615AE /* MercadoTests.swift */; };
+		47E66BA41E364976003615AE /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BA31E364976003615AE /* ItemTableViewController.swift */; };
+		47E66BA91E364A06003615AE /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BA81E364A06003615AE /* HistoryTableViewController.swift */; };
+		47E66BAB1E364A1D003615AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BAA1E364A1D003615AE /* DetailViewController.swift */; };
+		47E66BAF1E364A95003615AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BAE1E364A95003615AE /* Constants.swift */; };
+		47E66BB21E3651C0003615AE /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BB11E3651C0003615AE /* REST.swift */; };
+		F8A9F1D3A178240B4B49EBF0 /* Pods_Mercado.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 998F0FA5D6FD346EA94754B7 /* Pods_Mercado.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,10 +32,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		471636C91E3658A900D13586 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0B60EEFD4F97158C1216C49E /* Pods-Mercado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercado/Pods-Mercado.debug.xcconfig"; sourceTree = "<group>"; };
 		47E66B7D1E36373B003615AE /* Mercado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E66B801E36373B003615AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		47E66B821E36373B003615AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		47E66B851E36373B003615AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47E66B881E36373B003615AE /* Mercado.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mercado.xcdatamodel; sourceTree = "<group>"; };
 		47E66B8A1E36373B003615AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +57,16 @@
 		47E66B941E36373B003615AE /* MercadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E66B981E36373B003615AE /* MercadoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoTests.swift; sourceTree = "<group>"; };
 		47E66B9A1E36373B003615AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		47E66BA31E364976003615AE /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
+		47E66BA81E364A06003615AE /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		47E66BAA1E364A1D003615AE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		47E66BAE1E364A95003615AE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		47E66BB11E3651C0003615AE /* REST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REST.swift; sourceTree = "<group>"; };
+		774D8E0D099F1E70A50E8E4B /* Pods_MercadoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MercadoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		998F0FA5D6FD346EA94754B7 /* Pods_Mercado.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mercado.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8EBE95F4748243C2DBF7BC1 /* Pods-MercadoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MercadoTests/Pods-MercadoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F70DC7E1A9D76DCC3B80114D /* Pods-Mercado.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercado.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mercado/Pods-Mercado.release.xcconfig"; sourceTree = "<group>"; };
+		FF01679661BB55E9E46108EA /* Pods-MercadoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MercadoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MercadoTests/Pods-MercadoTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8A9F1D3A178240B4B49EBF0 /* Pods_Mercado.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1339C9315E07FCD3173EE708 /* Pods_MercadoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +95,8 @@
 				47E66B7F1E36373B003615AE /* Mercado */,
 				47E66B971E36373B003615AE /* MercadoTests */,
 				47E66B7E1E36373B003615AE /* Products */,
+				DFA85822B555ED6A328E58F5 /* Pods */,
+				5A1597253AB8E546D7347790 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +112,12 @@
 		47E66B7F1E36373B003615AE /* Mercado */ = {
 			isa = PBXGroup;
 			children = (
-				47E66B801E36373B003615AE /* AppDelegate.swift */,
-				47E66B821E36373B003615AE /* ViewController.swift */,
-				47E66B841E36373B003615AE /* Main.storyboard */,
-				47E66B8A1E36373B003615AE /* Assets.xcassets */,
-				47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */,
-				47E66B8F1E36373B003615AE /* Info.plist */,
-				47E66B871E36373B003615AE /* Mercado.xcdatamodeld */,
+				47E66BAC1E364A39003615AE /* Cells */,
+				47E66BA71E3649A0003615AE /* View's */,
+				47E66BA61E36498B003615AE /* Supporting files */,
+				47E66BAD1E364A7F003615AE /* Model */,
+				47E66BA51E36497E003615AE /* Controllers */,
+				47E66BB01E364AA0003615AE /* Constants */,
 			);
 			path = Mercado;
 			sourceTree = "<group>";
@@ -99,6 +131,79 @@
 			path = MercadoTests;
 			sourceTree = "<group>";
 		};
+		47E66BA51E36497E003615AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				47E66BA31E364976003615AE /* ItemTableViewController.swift */,
+				47E66BA81E364A06003615AE /* HistoryTableViewController.swift */,
+				47E66BAA1E364A1D003615AE /* DetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		47E66BA61E36498B003615AE /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				47E66B801E36373B003615AE /* AppDelegate.swift */,
+				47E66B8A1E36373B003615AE /* Assets.xcassets */,
+				47E66B8F1E36373B003615AE /* Info.plist */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
+		47E66BA71E3649A0003615AE /* View's */ = {
+			isa = PBXGroup;
+			children = (
+				47E66B841E36373B003615AE /* Main.storyboard */,
+				47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */,
+			);
+			name = "View's";
+			sourceTree = "<group>";
+		};
+		47E66BAC1E364A39003615AE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		47E66BAD1E364A7F003615AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				47E66B871E36373B003615AE /* Mercado.xcdatamodeld */,
+				47E66BB11E3651C0003615AE /* REST.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		47E66BB01E364AA0003615AE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				47E66BAE1E364A95003615AE /* Constants.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		5A1597253AB8E546D7347790 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				998F0FA5D6FD346EA94754B7 /* Pods_Mercado.framework */,
+				774D8E0D099F1E70A50E8E4B /* Pods_MercadoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFA85822B555ED6A328E58F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B60EEFD4F97158C1216C49E /* Pods-Mercado.debug.xcconfig */,
+				F70DC7E1A9D76DCC3B80114D /* Pods-Mercado.release.xcconfig */,
+				A8EBE95F4748243C2DBF7BC1 /* Pods-MercadoTests.debug.xcconfig */,
+				FF01679661BB55E9E46108EA /* Pods-MercadoTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +211,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47E66B9D1E36373B003615AE /* Build configuration list for PBXNativeTarget "Mercado" */;
 			buildPhases = (
+				067B2095A01F9B4973A72B70 /* [CP] Check Pods Manifest.lock */,
 				47E66B791E36373B003615AE /* Sources */,
 				47E66B7A1E36373B003615AE /* Frameworks */,
 				47E66B7B1E36373B003615AE /* Resources */,
+				8E4E677F24216B98B02B563F /* [CP] Embed Pods Frameworks */,
+				A34347AF3B490DF45317F82D /* [CP] Copy Pods Resources */,
+				471636C91E3658A900D13586 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 47E66BA01E36373B003615AE /* Build configuration list for PBXNativeTarget "MercadoTests" */;
 			buildPhases = (
+				F329BE80BAFDDFF1E233A60D /* [CP] Check Pods Manifest.lock */,
 				47E66B901E36373B003615AE /* Sources */,
 				47E66B911E36373B003615AE /* Frameworks */,
 				47E66B921E36373B003615AE /* Resources */,
+				C5EC11E533F687913CA2AA83 /* [CP] Embed Pods Frameworks */,
+				E40D955F80F1EEF97FD38A4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,14 +311,111 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		067B2095A01F9B4973A72B70 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E4E677F24216B98B02B563F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mercado/Pods-Mercado-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A34347AF3B490DF45317F82D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mercado/Pods-Mercado-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5EC11E533F687913CA2AA83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MercadoTests/Pods-MercadoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E40D955F80F1EEF97FD38A4E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MercadoTests/Pods-MercadoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F329BE80BAFDDFF1E233A60D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		47E66B791E36373B003615AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47E66BA91E364A06003615AE /* HistoryTableViewController.swift in Sources */,
 				47E66B891E36373B003615AE /* Mercado.xcdatamodeld in Sources */,
-				47E66B831E36373B003615AE /* ViewController.swift in Sources */,
+				47E66BAB1E364A1D003615AE /* DetailViewController.swift in Sources */,
+				47E66BA41E364976003615AE /* ItemTableViewController.swift in Sources */,
 				47E66B811E36373B003615AE /* AppDelegate.swift in Sources */,
+				47E66BAF1E364A95003615AE /* Constants.swift in Sources */,
+				47E66BB21E3651C0003615AE /* REST.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,10 +552,13 @@
 		};
 		47E66B9E1E36373B003615AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B60EEFD4F97158C1216C49E /* Pods-Mercado.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5D8357SCSF;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Mercado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alekseyneronov.Mercado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -356,10 +568,13 @@
 		};
 		47E66B9F1E36373B003615AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F70DC7E1A9D76DCC3B80114D /* Pods-Mercado.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5D8357SCSF;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Mercado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alekseyneronov.Mercado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,6 +584,7 @@
 		};
 		47E66BA11E36373B003615AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8EBE95F4748243C2DBF7BC1 /* Pods-MercadoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -384,6 +600,7 @@
 		};
 		47E66BA21E36373B003615AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF01679661BB55E9E46108EA /* Pods-MercadoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -416,6 +633,7 @@
 				47E66B9F1E36373B003615AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47E66BA01E36373B003615AE /* Build configuration list for PBXNativeTarget "MercadoTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +642,7 @@
 				47E66BA21E36373B003615AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
