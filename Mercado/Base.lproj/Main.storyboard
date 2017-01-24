@@ -36,7 +36,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VBL-oF-1W3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="C0E-4X-fNH"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vy3-FD-LyA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vy3-FD-LyA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -64,7 +64,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VqU-WQ-URQ" id="T9T-Ct-xJi">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QLa-ka-GAn">
@@ -153,7 +153,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hqa-d0-Cqa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="history" id="FDg-HZ-yTL"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="YOa-Pc-QRK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YOa-Pc-QRK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.001578636902471766" green="0.057699445017976851" blue="0.34498020477101288" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -167,7 +167,7 @@
             </objects>
             <point key="canvasLocation" x="381.60000000000002" y="492.50374812593708"/>
         </scene>
-        <!--Your history-->
+        <!--Last 5 items-->
         <scene sceneID="3hJ-JV-7iN">
             <objects>
                 <tableViewController id="nLn-HB-rcA" customClass="HistoryTableViewController" customModule="Mercado" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,7 +181,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mm7-yC-ZTp" id="0Oc-SP-Gq4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7V-OY-b6Y">
@@ -236,7 +236,13 @@
                             <outlet property="delegate" destination="nLn-HB-rcA" id="QGe-lN-H9a"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your history" id="mYS-gf-2x5"/>
+                    <navigationItem key="navigationItem" title="Last 5 items" id="mYS-gf-2x5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="56u-fT-nMC">
+                            <connections>
+                                <action selector="reload:" destination="nLn-HB-rcA" id="7CA-Xw-44t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Dh9-e1-cKF" kind="show" identifier="Segue Item Details from History" id="Xm0-HX-ph6"/>
                     </connections>

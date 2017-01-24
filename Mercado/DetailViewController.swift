@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
     var titleItem: String?
     var price: String?
 
-    var product: Product? { didSet { updateUI() } }
+    var product: Product?
     
     var titleText: String? {
         didSet {
@@ -37,6 +37,7 @@ class DetailViewController: UIViewController {
                 
                 self.product = prod
                 self.product?.thumb = weakself?.thumb
+                self.product?.created = NSDate()
                 if let url = weakself?.product?.imgUrl {
                     Alamofire.request(url).responseImage { response in
                         if let image = response.result.value {
@@ -51,13 +52,21 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
+        super.viewDidLoad()
         imageView?.image = thumb
         numberLabel?.text = number
         titleLabel?.text = titleItem
         priceLabel?.text = price
         descriptionLabel?.text = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if product != nil {
+            updateUI()
+        }
     }
     
     private func updateUI() {
@@ -76,6 +85,7 @@ class DetailViewController: UIViewController {
         }
         if let image = product?.image as? UIImage {
             imageView?.image = image
+            indicator.stopAnimating()
         }
     }
 
