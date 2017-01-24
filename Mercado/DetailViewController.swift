@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
 
-    var image: UIImage?
+    var thumb: UIImage?
     var number: String?
     var titleItem: String?
     var price: String?
@@ -33,10 +33,11 @@ class DetailViewController: UIViewController {
     
     var productId: String? {
         didSet {
-            REST.loadItem(for: productId!) { (prod) in
+            REST.loadItem(for: productId!) {[weak weakself = self] (prod) in
                 
                 self.product = prod
-                if let url = self.product?.imgUrl {
+                self.product?.thumb = weakself?.thumb
+                if let url = weakself?.product?.imgUrl {
                     Alamofire.request(url).responseImage { response in
                         if let image = response.result.value {
                             self.product?.image = image
@@ -52,7 +53,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        imageView?.image = image
+        imageView?.image = thumb
         numberLabel?.text = number
         titleLabel?.text = titleItem
         priceLabel?.text = price

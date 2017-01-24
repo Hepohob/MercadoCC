@@ -12,7 +12,7 @@ import Alamofire
 
 class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
     
-    struct Storyboard {
+    private struct Storyboard {
         static let CellID = "Search cell"
         static let SegueItemDetails = "Segue Item Details"
     }
@@ -24,7 +24,7 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         }
     }
 
-    var controller: NSFetchedResultsController<Search>!
+    private var controller: NSFetchedResultsController<Search>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -171,7 +171,7 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
                     destination.number = item.id
                     destination.price = "Price: \(item.price) \(item.currency ?? "")"
                     if let img = item.thumbImg as? UIImage {
-                        destination.image = img
+                        destination.thumb = img
                     }
 
                     destination.productId = item.id

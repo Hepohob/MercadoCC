@@ -32,4 +32,13 @@ class SearchTableCell: UITableViewCell {
         indicator.stopAnimating()
     }
     
+    func configureCell(product: Product) {
+        title.text = product.title
+        priceLabel.text = "Price: \(product.price) \(product.currency ?? "")"
+        if let image = product.image as? UIImage {
+            thumb.image = image
+        }
+        indicator.stopAnimating()
+    }
+
 }
