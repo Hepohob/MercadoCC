@@ -177,11 +177,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="History cell" rowHeight="100" id="mm7-yC-ZTp" customClass="SearchTableCell" customModule="Mercado" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="History cell" rowHeight="100" id="mm7-yC-ZTp" customClass="SearchTableCell" customModule="Mercado" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mm7-yC-ZTp" id="0Oc-SP-Gq4">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q7V-OY-b6Y">
@@ -195,13 +195,13 @@
                                             <rect key="frame" x="40" y="40" width="20" height="20"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3y-a4-ld2">
-                                            <rect key="frame" x="100" y="65.5" width="262" height="21"/>
+                                            <rect key="frame" x="100" y="66" width="229" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.36470588240000001" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="A5q-tf-a60">
-                                            <rect key="frame" x="100" y="5" width="270" height="50"/>
+                                            <rect key="frame" x="100" y="5" width="237" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="qZ4-Rq-PUe"/>
                                             </constraints>
@@ -290,36 +290,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description ..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Fji-v7-Sl5">
-                                <rect key="frame" x="15" y="489" width="345" height="90"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="KKs-X9-65l"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price 0.00 USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEV-QX-9cL">
                                 <rect key="frame" x="18" y="586.5" width="339" height="26.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" red="0.0" green="0.36470588240000001" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Gmj-X9-cRb">
+                                <rect key="frame" x="15" y="483.5" width="345" height="100"/>
+                                <color key="backgroundColor" red="0.79233046987940214" green="0.79233046987940214" blue="0.79233046987940214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="EKk-d3-Bf4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="NxR-Fv-ZrC" firstAttribute="centerY" secondItem="vQE-XE-dZU" secondAttribute="centerY" id="2WE-Pz-1Es"/>
                             <constraint firstItem="yEV-QX-9cL" firstAttribute="leading" secondItem="Nnm-9Y-8YA" secondAttribute="leadingMargin" constant="2" id="31Z-Cc-5xQ"/>
                             <constraint firstItem="vQE-XE-dZU" firstAttribute="leading" secondItem="Nnm-9Y-8YA" secondAttribute="leading" constant="10" id="FGu-Vo-0gT"/>
+                            <constraint firstItem="yEV-QX-9cL" firstAttribute="top" secondItem="Gmj-X9-cRb" secondAttribute="bottom" constant="3" id="I6e-63-99q"/>
+                            <constraint firstItem="Gmj-X9-cRb" firstAttribute="leading" secondItem="Nnm-9Y-8YA" secondAttribute="leading" constant="15" id="Iwd-6f-0q6"/>
                             <constraint firstAttribute="trailing" secondItem="vQE-XE-dZU" secondAttribute="trailing" constant="10" id="KQa-7G-SNB"/>
                             <constraint firstItem="XVF-cj-f3o" firstAttribute="top" secondItem="vQE-XE-dZU" secondAttribute="bottom" constant="5" id="PLO-1k-fQT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yEV-QX-9cL" secondAttribute="trailing" constant="2" id="QGy-LD-5Vh"/>
-                            <constraint firstItem="Fji-v7-Sl5" firstAttribute="top" secondItem="pm0-M7-xUc" secondAttribute="bottom" constant="2" id="Td9-s3-cx4"/>
-                            <constraint firstItem="Fji-v7-Sl5" firstAttribute="leading" secondItem="Nnm-9Y-8YA" secondAttribute="leading" constant="15" id="YV3-KL-YKy"/>
                             <constraint firstItem="vQE-XE-dZU" firstAttribute="top" secondItem="4vM-o9-mQS" secondAttribute="bottom" constant="10" id="ZiU-ya-atp"/>
                             <constraint firstItem="tOI-jD-DGP" firstAttribute="top" secondItem="yEV-QX-9cL" secondAttribute="bottom" constant="5" id="a78-46-Q6U"/>
                             <constraint firstItem="NxR-Fv-ZrC" firstAttribute="centerX" secondItem="vQE-XE-dZU" secondAttribute="centerX" id="cgM-VO-qmT"/>
-                            <constraint firstAttribute="trailing" secondItem="Fji-v7-Sl5" secondAttribute="trailing" constant="15" id="f2G-B1-q6C"/>
+                            <constraint firstAttribute="trailing" secondItem="Gmj-X9-cRb" secondAttribute="trailing" constant="15" id="cjI-Cg-i1h"/>
                             <constraint firstItem="pm0-M7-xUc" firstAttribute="top" secondItem="XVF-cj-f3o" secondAttribute="bottom" constant="5" id="kZ8-bc-wL8"/>
                             <constraint firstItem="pm0-M7-xUc" firstAttribute="leading" secondItem="Nnm-9Y-8YA" secondAttribute="leading" constant="15" id="oYQ-3K-job"/>
                             <constraint firstAttribute="trailing" secondItem="pm0-M7-xUc" secondAttribute="trailing" constant="15" id="ryO-br-qEf"/>
@@ -328,7 +328,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="descriptionLabel" destination="Fji-v7-Sl5" id="xos-hH-Rqi"/>
+                        <outlet property="descriptionText" destination="Gmj-X9-cRb" id="0jV-ax-nl4"/>
                         <outlet property="imageView" destination="vQE-XE-dZU" id="6mW-Fu-Ldw"/>
                         <outlet property="indicator" destination="NxR-Fv-ZrC" id="BiL-LA-KhJ"/>
                         <outlet property="numberLabel" destination="XVF-cj-f3o" id="8Wu-9H-trz"/>

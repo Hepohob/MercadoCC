@@ -15,8 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var descriptionText: UITextView!
 
     var thumb: UIImage?
     var number: String?
@@ -59,7 +59,8 @@ class DetailViewController: UIViewController {
         numberLabel?.text = number
         titleLabel?.text = titleItem
         priceLabel?.text = price
-        descriptionLabel?.text = ""
+        descriptionText?.text = ""
+        descriptionText?.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,8 +81,10 @@ class DetailViewController: UIViewController {
             let curr = product?.currency {
             priceLabel?.text = "Price: \(price) \(curr)"
         }
-        if let description = product?.descript {
-            descriptionLabel?.text = description
+        if let description = product?.descript, description.characters.count > 0 {
+            descriptionText?.text = description
+            descriptionText?.flashScrollIndicators()
+            descriptionText?.isHidden = false
         }
         if let image = product?.image as? UIImage {
             imageView?.image = image
