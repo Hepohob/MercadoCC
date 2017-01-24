@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Alamofire
 
-class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UITextFieldDelegate {
+class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
     
     struct Storyboard {
         static let CellID = "Search cell"
@@ -19,20 +19,8 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
 
     var searchText:String? {
         didSet {
-            // Delete all records in entity 'Search' CoreData
-            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Search")
-            request.returnsObjectsAsFaults = false
-            do {
-                let results = try context.fetch(request)
-                for managedObject in results
-                {
-                    let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
-                    context.delete(managedObjectData)
-                }
-            } catch {
-                print(error)
-            }
-            updateUI()
+            clearSearchEntity()
+            loadRESTData()
         }
     }
 
@@ -46,12 +34,12 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
 
     // MARK: Update UI elements
     
-    private func updateUI() {
+    private func loadRESTData() {
         if let query = searchText, !query.isEmpty {
             REST.loadList(for: query) {
                 self.attemptFetch()
                 self.tableView.setContentOffset(CGPoint(x:0, y:-(self.navigationController?.navigationBar.frame.size.height)! * 1.4), animated: false)
-                self.tableView.reloadData()
+                self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: UITableViewRowAnimation.bottom)
             }
         }
     }
@@ -59,18 +47,35 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
     private func configureCell(cell:SearchTableCell, indexPath:IndexPath) {
         // update cell
         let item = controller.object(at: indexPath)
-        
-        Alamofire.request(item.thumb!).responseImage { response in
-            if let image = response.result.value {
-                cell.configureCell(image: image)
-                item.thumbImg = image
+        if let thumbString = item.thumb {
+            Alamofire.request(thumbString).responseImage { response in
+                if let image = response.result.value {
+                    cell.configureCell(image: image)
+                    item.thumbImg = image
+                }
             }
         }
         
         cell.configureCell(item: item)
     }
     
-    // MARK: CoreData fetching
+    // MARK: CoreData working
+    
+    private func clearSearchEntity() {
+        // Delete all records in entity 'Search' CoreData
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Search")
+        request.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(request)
+            for managedObject in results
+            {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                context.delete(managedObjectData)
+            }
+        } catch {
+            print(error)
+        }
+    }
     
     private func attemptFetch() {
         let fetchRequest: NSFetchRequest<Search> = Search.fetchRequest()
@@ -93,7 +98,7 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         let fetchRequest: NSFetchRequest<Request> = Request.fetchRequest()
         do {
             if let reqs = try context.fetch(fetchRequest) as [Request]?, reqs.count > 0 {
-                searchTextField?.text = reqs.last?.string
+                searchBar?.text = reqs.last?.string
             }
         } catch {
             // handle error
@@ -139,6 +144,7 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
         if let text = searchBar.text {
             searchText = text
             let req = Request(context: context)
@@ -147,28 +153,6 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         }
     }
     
-    @IBAction func refresh(_ sender: UITextField) {
-        updateUI()
-    }
-    
-    @IBOutlet weak var searchTextField: UITextField! {
-        didSet {
-            searchTextField.delegate = self
-            searchTextField.text = searchText
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        if let text = textField.text {
-            searchText = text
-            let req = Request(context: context)
-            req.string = text
-            ad.saveContext()
-        }
-        return true
-    }
-
     // MARK: - Navigation
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -182,7 +166,16 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         if segue.identifier == Storyboard.SegueItemDetails {
             if let destination = segue.destination as? DetailViewController {
                 if let item = sender as? Search {
-//                    destination.itemToEdit = item
+                    
+                    destination.titleItem = item.title
+                    destination.number = item.id
+                    destination.price = "Price: \(item.price) \(item.currency ?? "")"
+                    if let img = item.thumbImg as? UIImage {
+                        destination.image = img
+                    }
+
+                    destination.productId = item.id
+                    destination.titleText = searchBar.text
                 }
             }
         }

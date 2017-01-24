@@ -157,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				47E66B841E36373B003615AE /* Main.storyboard */,
-				47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */,
 			);
 			name = "View's";
 			sourceTree = "<group>";
@@ -183,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				47E66BAE1E364A95003615AE /* Constants.swift */,
+				47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
