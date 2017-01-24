@@ -55,9 +55,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="MsG-Uz-Lf5">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Search cell" rowHeight="100" id="VqU-WQ-URQ" customClass="SearchTableCell" customModule="Mercado" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VqU-WQ-URQ" id="T9T-Ct-xJi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
@@ -107,7 +112,7 @@
                                     <outlet property="priceLabel" destination="U37-Ms-oE9" id="h44-jv-3EO"/>
                                     <outlet property="thumb" destination="QLa-ka-GAn" id="XiF-0M-hDz"/>
                                     <outlet property="title" destination="cLy-j1-Df2" id="81j-je-3dt"/>
-                                    <segue destination="Dh9-e1-cKF" kind="show" id="0ft-1L-jNp"/>
+                                    <segue destination="Dh9-e1-cKF" kind="show" identifier="Segue Item Details" id="0ft-1L-jNp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -130,6 +135,7 @@
                         </textField>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="MsG-Uz-Lf5" id="5gn-Xl-OhS"/>
                         <outlet property="searchTextField" destination="zcw-RG-l0S" id="y8W-YP-vhc"/>
                     </connections>
                 </tableViewController>

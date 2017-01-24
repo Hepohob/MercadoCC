@@ -8,7 +8,8 @@
 
 import Foundation
 
-let BASE_URL = "https://api.mercadolibre.com/sites/MLU/search?q="
+let SEARCH_URL = "https://api.mercadolibre.com/sites/MLU/search?q="
+let ITEM_URL = "https://api.mercadolibre.com/items/"
 let URL_SUFFIX = "#json"
 
 typealias DownloadComplete = () -> ()

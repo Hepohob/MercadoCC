@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Alamofire
 
-class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+class ItemTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UITextFieldDelegate {
     
     struct Storyboard {
         static let CellID = "Search cell"
@@ -41,7 +41,7 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
     override func viewDidLoad() {
         super.viewDidLoad()
         getLastSearch()
-        updateUI()
+        attemptFetch()
     }
 
     // MARK: Update UI elements
@@ -90,17 +90,13 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
     }
 
     private func getLastSearch() {
-        let fetchRequest: NSFetchRequest<Search> = Search.fetchRequest()
-        fetchRequest.sortDescriptors = []
-        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                    managedObjectContext: context,
-                                                    sectionNameKeyPath: nil,
-                                                    cacheName: nil)
-        controller.delegate = self
-        self.controller = controller
+        let fetchRequest: NSFetchRequest<Request> = Request.fetchRequest()
         do {
-            try controller.performFetch()
+            if let reqs = try context.fetch(fetchRequest) as [Request]?, reqs.count > 0 {
+                searchTextField?.text = reqs.last?.string
+            }
         } catch {
+            // handle error
             let error = error as NSError
             print(error)
         }
@@ -135,6 +131,22 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
 
     // MARK: TextFieldDelegates
     
+    @IBOutlet weak var searchBar: UISearchBar!{
+        didSet {
+            searchBar.delegate = self
+            searchBar.text = searchText
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let text = searchBar.text {
+            searchText = text
+            let req = Request(context: context)
+            req.string = text
+            ad.saveContext()
+        }
+    }
+    
     @IBAction func refresh(_ sender: UITextField) {
         updateUI()
     }
@@ -150,18 +162,31 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         textField.resignFirstResponder()
         if let text = textField.text {
             searchText = text
+            let req = Request(context: context)
+            req.string = text
+            ad.saveContext()
         }
         return true
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objs = controller.fetchedObjects , objs.count > 0 {
+            let item = objs[indexPath.row]
+            performSegue(withIdentifier: Storyboard.SegueItemDetails, sender: item)
+        }
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.SegueItemDetails {
+            if let destination = segue.destination as? DetailViewController {
+                if let item = sender as? Search {
+//                    destination.itemToEdit = item
+                }
+            }
+        }
+        
+    }
 
 }
