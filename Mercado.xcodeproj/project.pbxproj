@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		1339C9315E07FCD3173EE708 /* Pods_MercadoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 774D8E0D099F1E70A50E8E4B /* Pods_MercadoTests.framework */; };
 		471636CB1E36711D00D13586 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471636CA1E36711D00D13586 /* SearchTableCell.swift */; };
+		478458931E3893A400AFBF5B /* RESTTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478458921E3893A400AFBF5B /* RESTTest.swift */; };
+		478458951E389A0D00AFBF5B /* CellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478458941E389A0D00AFBF5B /* CellTest.swift */; };
+		478458971E38AC1300AFBF5B /* ItemTVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478458961E38AC1300AFBF5B /* ItemTVCTest.swift */; };
+		478458991E38AC2500AFBF5B /* HistoryTVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478458981E38AC2500AFBF5B /* HistoryTVCTest.swift */; };
+		4784589B1E38B5A000AFBF5B /* DetailVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4784589A1E38B5A000AFBF5B /* DetailVCTest.swift */; };
 		47E66B811E36373B003615AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B801E36373B003615AE /* AppDelegate.swift */; };
 		47E66B861E36373B003615AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E66B841E36373B003615AE /* Main.storyboard */; };
 		47E66B891E36373B003615AE /* Mercado.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B871E36373B003615AE /* Mercado.xcdatamodeld */; };
 		47E66B8B1E36373B003615AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E66B8A1E36373B003615AE /* Assets.xcassets */; };
 		47E66B8E1E36373B003615AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */; };
-		47E66B991E36373B003615AE /* MercadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66B981E36373B003615AE /* MercadoTests.swift */; };
 		47E66BA41E364976003615AE /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BA31E364976003615AE /* ItemTableViewController.swift */; };
 		47E66BA91E364A06003615AE /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BA81E364A06003615AE /* HistoryTableViewController.swift */; };
 		47E66BAB1E364A1D003615AE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E66BAA1E364A1D003615AE /* DetailViewController.swift */; };
@@ -49,6 +53,11 @@
 /* Begin PBXFileReference section */
 		0B60EEFD4F97158C1216C49E /* Pods-Mercado.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mercado.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mercado/Pods-Mercado.debug.xcconfig"; sourceTree = "<group>"; };
 		471636CA1E36711D00D13586 /* SearchTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
+		478458921E3893A400AFBF5B /* RESTTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTTest.swift; sourceTree = "<group>"; };
+		478458941E389A0D00AFBF5B /* CellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellTest.swift; sourceTree = "<group>"; };
+		478458961E38AC1300AFBF5B /* ItemTVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTVCTest.swift; sourceTree = "<group>"; };
+		478458981E38AC2500AFBF5B /* HistoryTVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTVCTest.swift; sourceTree = "<group>"; };
+		4784589A1E38B5A000AFBF5B /* DetailVCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVCTest.swift; sourceTree = "<group>"; };
 		47E66B7D1E36373B003615AE /* Mercado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mercado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E66B801E36373B003615AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E66B851E36373B003615AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,7 +66,6 @@
 		47E66B8D1E36373B003615AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47E66B8F1E36373B003615AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47E66B941E36373B003615AE /* MercadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MercadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		47E66B981E36373B003615AE /* MercadoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercadoTests.swift; sourceTree = "<group>"; };
 		47E66B9A1E36373B003615AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47E66BA31E364976003615AE /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		47E66BA81E364A06003615AE /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +135,12 @@
 		47E66B971E36373B003615AE /* MercadoTests */ = {
 			isa = PBXGroup;
 			children = (
-				47E66B981E36373B003615AE /* MercadoTests.swift */,
 				47E66B9A1E36373B003615AE /* Info.plist */,
+				478458921E3893A400AFBF5B /* RESTTest.swift */,
+				478458941E389A0D00AFBF5B /* CellTest.swift */,
+				478458961E38AC1300AFBF5B /* ItemTVCTest.swift */,
+				478458981E38AC2500AFBF5B /* HistoryTVCTest.swift */,
+				4784589A1E38B5A000AFBF5B /* DetailVCTest.swift */,
 			);
 			path = MercadoTests;
 			sourceTree = "<group>";
@@ -427,7 +439,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47E66B991E36373B003615AE /* MercadoTests.swift in Sources */,
+				478458931E3893A400AFBF5B /* RESTTest.swift in Sources */,
+				478458951E389A0D00AFBF5B /* CellTest.swift in Sources */,
+				478458991E38AC2500AFBF5B /* HistoryTVCTest.swift in Sources */,
+				4784589B1E38B5A000AFBF5B /* DetailVCTest.swift in Sources */,
+				478458971E38AC1300AFBF5B /* ItemTVCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0B60EEFD4F97158C1216C49E /* Pods-Mercado.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5D8357SCSF;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -574,6 +591,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F70DC7E1A9D76DCC3B80114D /* Pods-Mercado.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5D8357SCSF;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
