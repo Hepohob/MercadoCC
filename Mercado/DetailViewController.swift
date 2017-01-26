@@ -38,6 +38,11 @@ class DetailViewController: UIViewController {
                 self.product = prod
                 self.product?.thumb = weakself?.thumb
                 self.product?.created = NSDate()
+                if let descript = weakself?.product?.descript, descript.characters.count > 0 {
+                    self.descriptionText?.text = descript
+                    self.descriptionText?.flashScrollIndicators()
+                    self.descriptionText?.isHidden = false
+                }
                 if let url = weakself?.product?.imgUrl {
                     Alamofire.request(url).responseImage { response in
                         if let image = response.result.value {
@@ -47,6 +52,9 @@ class DetailViewController: UIViewController {
                             ad.saveContext()
                         }
                     }
+                } else {
+                    // no image
+                    self.indicator.stopAnimating()
                 }
                 ad.saveContext()
             }
@@ -81,13 +89,17 @@ class DetailViewController: UIViewController {
             let curr = product?.currency {
             priceLabel?.text = "Price: \(price) \(curr)"
         }
-        if let description = product?.descript, description.characters.count > 0 {
-            descriptionText?.text = description
+        if let descript = product?.descript, descript.characters.count > 0 {
+            descriptionText?.text = descript
             descriptionText?.flashScrollIndicators()
             descriptionText?.isHidden = false
         }
         if let image = product?.image as? UIImage {
             imageView?.image = image
+            indicator.stopAnimating()
+        } else {
+            // no image
+            imageView?.image = UIImage(named: "imagePick")
             indicator.stopAnimating()
         }
     }

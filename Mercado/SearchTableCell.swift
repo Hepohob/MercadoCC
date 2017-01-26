@@ -37,6 +37,9 @@ class SearchTableCell: UITableViewCell {
         priceLabel.text = "Price: \(product.price) \(product.currency ?? "")"
         if let image = product.image as? UIImage {
             thumb.image = image
+        } else {
+            // no image
+            thumb.image = UIImage(named: "imagePick")
         }
         indicator.stopAnimating()
     }

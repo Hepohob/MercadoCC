@@ -59,10 +59,21 @@ class HistoryTVCTest: XCTestCase {
             let error = error as NSError
             print(error)
         }
-
-        let expectedRows = (controller.sections?[0].numberOfObjects)!
-        let actualRows = tvc.tableView.numberOfRows(inSection: 0)
+        
+        // Here take care about HistoryTableViewController mode - 5 items or All items !!!
+        
+        tvc.isShowFive = false
+        tvc.tableView.reloadData()
+        var expectedRows = (controller.sections?[0].numberOfObjects)!
+        var actualRows = tvc.tableView.numberOfRows(inSection: 0)
         XCTAssertTrue(actualRows == expectedRows, "\(nameCntr) table has \(actualRows) rows but it should have \(expectedRows)")
+
+        tvc.isShowFive = true
+        tvc.tableView.reloadData()
+        expectedRows = 5
+        actualRows = tvc.tableView.numberOfRows(inSection: 0)
+        XCTAssertTrue(actualRows == expectedRows, "\(nameCntr) table has \(actualRows) rows but it should have \(expectedRows)")
+        
     }
     
 }

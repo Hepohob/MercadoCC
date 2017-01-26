@@ -104,7 +104,7 @@ class HistoryTableViewController: UITableViewController, NSFetchedResultsControl
         return 100
     }
     
-    private var isShowFive = true
+    var isShowFive = true
     
     @IBAction func reload(_ sender: UIBarButtonItem) {
         if !isShowFive {

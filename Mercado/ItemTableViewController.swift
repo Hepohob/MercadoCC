@@ -47,13 +47,20 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
     private func configureCell(cell:SearchTableCell, indexPath:IndexPath) {
         // update cell
         let item = controller.object(at: indexPath)
-        if let thumbString = item.thumb {
+        if let thumbString = item.thumb,
+            thumbString.characters.count > 5,
+            let url = NSURL(string: thumbString),
+            UIApplication.shared.canOpenURL(url as URL) {
             Alamofire.request(thumbString).responseImage { response in
                 if let image = response.result.value {
                     cell.configureCell(image: image)
                     item.thumbImg = image
                 }
             }
+        } else {
+            // no image
+            cell.configureCell(image: UIImage(named: "imagePick")!)
+            item.thumbImg = UIImage(named: "imagePick")
         }
         
         cell.configureCell(item: item)
@@ -134,7 +141,7 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
         return 100
     }
 
-    // MARK: TextFieldDelegates
+    // MARK: SearchBar delegates
     
     @IBOutlet weak var searchBar: UISearchBar!{
         didSet {
@@ -151,6 +158,10 @@ class ItemTableViewController: UITableViewController, NSFetchedResultsController
             req.string = text
             ad.saveContext()
         }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
     // MARK: - Navigation

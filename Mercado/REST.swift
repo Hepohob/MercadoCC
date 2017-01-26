@@ -81,9 +81,11 @@ class REST: NSObject {
                     product.currency = currency
                 }
                 if let pictures = dict[PRODUCT.Pictures] as? [Dictionary<String,AnyObject>] {
-                    if let imgUrl = pictures[0][PRODUCT.PicUrl] as? String {
-                        product.imgUrl = imgUrl
-                    }
+                    if pictures.count > 0 {
+                        if let imgUrl = pictures[0][PRODUCT.PicUrl] as? String {
+                            product.imgUrl = imgUrl
+                        }
+                    } 
                 }
                 if let id = dict[PRODUCT.Id] as? String {
                     product.id = id

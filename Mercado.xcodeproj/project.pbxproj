@@ -158,6 +158,7 @@
 		47E66BA61E36498B003615AE /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */,
 				47E66B801E36373B003615AE /* AppDelegate.swift */,
 				47E66B8A1E36373B003615AE /* Assets.xcassets */,
 				47E66B8F1E36373B003615AE /* Info.plist */,
@@ -194,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				47E66BAE1E364A95003615AE /* Constants.swift */,
-				47E66B8C1E36373B003615AE /* LaunchScreen.storyboard */,
 			);
 			name = Constants;
 			sourceTree = "<group>";

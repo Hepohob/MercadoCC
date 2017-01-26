@@ -29,8 +29,8 @@ class CellTest: XCTestCase {
     }
     
     func testTableViewOutlet() {
-        XCTAssertNotNil(tvc.tableView, "ItemTableViewController not found")
-        XCTAssertNotNil(hvc.tableView, "HistoryTableViewController not found")
+        XCTAssertNotNil(tvc.tableView, "ItemTableViewController tableView not found")
+        XCTAssertNotNil(hvc.tableView, "HistoryTableViewController tableView not found")
     }
 
     func testCellTVC() {
