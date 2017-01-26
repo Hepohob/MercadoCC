@@ -125,8 +125,9 @@
                             <rect key="frame" x="8" y="6" width="359" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <searchBar contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsG-Uz-Lf5">
+                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search text" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MsG-Uz-Lf5">
                                     <rect key="frame" x="18" y="0.0" width="323" height="33"/>
+                                    <color key="barTintColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert"/>
                                 </searchBar>
                             </subviews>

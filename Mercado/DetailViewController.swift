@@ -55,10 +55,20 @@ class DetailViewController: UIViewController {
                 } else {
                     // no image
                     self.indicator.stopAnimating()
+                    _ = Timer(timeInterval: 1.0,
+                          target: self,
+                          selector: #selector(self.noImage),
+                          userInfo: nil,
+                          repeats: false)
+                    
                 }
                 ad.saveContext()
             }
         }
+    }
+    
+    func noImage() {
+        self.product?.image = UIImage(named: "imagePick")
     }
 
     override func viewDidLoad() {
